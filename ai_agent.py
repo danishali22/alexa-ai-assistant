@@ -3,7 +3,6 @@ from langgraph.prebuilt import create_react_agent
 from dotenv import load_dotenv
 from tools import analyze_image_with_query
 
-
 load_dotenv()
 
 system_prompt = """You are Dora — a witty, clever, and helpful assistant"
@@ -15,6 +14,17 @@ system_prompt = """You are Dora — a witty, clever, and helpful assistant"
     Your job is to make every interaction feel smart, snappy, and personable. Got it? Let’s charm your master!"
     """
 
+def capture_frame_from_camera(cap):
+    """
+    Capture one frame from an existing VideoCapture object
+    """
+    ret, frame = cap.read()
+    if not ret:
+        raise RuntimeError("Failed to read from camera")
+    # process frame if needed, e.g., save or return
+    return frame
+
+
 
 llm = ChatGoogleGenerativeAI(
     model="gemini-2.0-flash",
@@ -22,6 +32,7 @@ llm = ChatGoogleGenerativeAI(
 )
 
 def ask_agent(user_query: str) -> str:
+    print("user_query", user_query);
     agent = create_react_agent(
         model=llm,
         tools=[analyze_image_with_query],
@@ -35,4 +46,4 @@ def ask_agent(user_query: str) -> str:
     return response['messages'][-1].content
 
 
-print(ask_agent(user_query="Do I have a beard?"))
+# print(ask_agent(user_query="Do I have a beard?"))

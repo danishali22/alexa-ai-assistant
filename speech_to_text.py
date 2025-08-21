@@ -58,5 +58,5 @@ def transcribe_with_groq(audio_filepath):
 
     return transcription.text
 
-audio_filepath = "test_speech_to_text.mp3"
-print(transcribe_with_groq(audio_filepath))
+# audio_filepath = "test_speech_to_text.mp3"
+# print(transcribe_with_groq(audio_filepath))

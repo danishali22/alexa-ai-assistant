@@ -55,7 +55,7 @@ def text_to_speech_with_gtts(input_text, output_filepath="output_gtts.mp3"):
     audioobj.save(output_filepath)
     play_audio_file(output_filepath)
 
-input_text = "Hi, I am doing fine, how are you? This is a test for Danish Ali"
+# input_text = "Hi, I am doing fine, how are you? This is a test for Danish Ali"
 
 # ✅ Offline save + play (MP3)
 # text_to_speech_with_elevenlabs(input_text, "test_elevenlabs.mp3")
