@@ -1,4 +1,3 @@
-# webcam_utils.py
 import cv2
 
 camera = None

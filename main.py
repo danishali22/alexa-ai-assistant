@@ -13,8 +13,8 @@ def process_audio_and_chat():
     while True:
         try:
             record_audio(file_path=audio_filepath)
-            user_input = "Do I have a beard?"
-            # user_input = transcribe_with_groq(audio_filepath)
+            # user_input = "Do I have a beard?"
+            user_input = transcribe_with_groq(audio_filepath)
 
             if "goodbye" in user_input.lower():
                 break
@@ -41,7 +41,7 @@ is_running = False
 last_frame = None
 
 with gr.Blocks() as demo:
-    gr.Markdown("<h1 style='color: orange; text-align: center;  font-size: 4em;'> 👧🏼 Dora – Your Personal AI Assistant</h1>")
+    gr.Markdown("<h1 style='color: orange; text-align: center;  font-size: 4em;'> 👧🏼 Alexa – Your Personal AI Assistant</h1>")
 
     with gr.Row():
         # Left column - Webcam
